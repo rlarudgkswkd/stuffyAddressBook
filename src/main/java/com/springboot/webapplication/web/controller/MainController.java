@@ -14,8 +14,8 @@ public class MainController {
         return "index";
     }
 
-    @GetMapping("/posts/templates/save")
-    public String posts_Save( ){
-        return "posts_save";
+    @GetMapping("/templates/save")
+    public String saveTemplate( ){
+        return "saveTemplate";
     }
 }
