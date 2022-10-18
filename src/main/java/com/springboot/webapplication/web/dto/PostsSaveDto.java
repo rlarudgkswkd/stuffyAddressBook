@@ -32,4 +32,11 @@ public class PostsSaveDto {
                 .build();
     }
 
+    public Posts toUpdateEntity(){
+        return Posts.builder()
+                .name(name)
+                .age(age)
+                .phone_number(phone_number)
+                .build();
+    }
 }

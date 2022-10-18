@@ -21,4 +21,10 @@ public class PostsController {
     public Long posts_Save(@RequestBody PostsSaveDto postsSaveDto){
         return postsService.save(postsSaveDto);
     }
+
+    @PostMapping("/posts/update")
+    public Long posts_Update(@RequestBody PostsSaveDto postsSaveDto){
+        return postsService.update(postsSaveDto);
+    }
+
 }
