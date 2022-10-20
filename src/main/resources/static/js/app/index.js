@@ -87,6 +87,10 @@ var main = {
            gubun = 1;
            _this.update();
         });
+        $('#btn-delete').on('click',function(){
+           gubun = 2;
+           _this.Delete();
+        });
     },
 
     save : function(){
@@ -114,6 +118,7 @@ var main = {
 
     update : function(){
             var data = {
+                id : $('#id').val(),
                 name : $('#name').val(),
                 age : $('#age').val(),
                 phone_number : $('#phone_number').val()
@@ -122,8 +127,8 @@ var main = {
             if (!validation_check(data,gubun)) { return false;}
 
             $.ajax({
-                type:'POST',
-                url : '/posts/update',
+                type:'PUT',
+                url : '/posts/update/'+data.id,
                 dataType : 'json',
                 contentType : 'application/json; charset=utf-8',
                 data : JSON.stringify(data)
@@ -133,20 +138,53 @@ var main = {
             }).fail(function (error) {
                 alert(JSON.stringify(error));
             });
+        },
+
+    Delete : function(){
+            var data = {
+                id : $('#id').val(),
+                name : $('#name').val(),
+                age : $('#age').val(),
+                phone_number : $('#phone_number').val()
+            };
+
+            if (!validation_check(data,gubun)) { return false;}
+
+            $.ajax({
+                type:'DELETE',
+                url : '/posts/delete/'+data.id,
+                dataType : 'json',
+                contentType : 'application/json; charset=utf-8',
+                data : JSON.stringify(data)
+            }).done(function(){
+                alert('삭제 완료');
+                window.location.href = '/';
+            }).fail(function (error) {
+                alert(JSON.stringify(error));
+            });
         }
 };
 
+//유효성 검사 func
+//gubun : 0 -> SAVE
+//gubun : 1 -> UPDATE
+//gubun : 2 -> DELETE
 function validation_check(data,gubun) {
+    var inputAge = $("#age").val();
+    var inputPhone_number = $("#phone_number").val();
+    var setAge = 19;
+
     if(gubun == 0){
-        var inputAge = $("#age").val();
-        var inputPhone_number = $("#phone_number").val();
-        var setAge = 19;
         if (inputAge > setAge){
             alert(20 + "세 이하의 친구만 기록할 수 있습니다.");
             return false;
         }
     } else if(gubun == 1) {
-        var inputPhone_number = $("#phone_number").val();
+        if (inputAge > setAge){
+            alert(20 + "세 이하의 친구만 기록할 수 있습니다.");
+            return false;
+        }
+    } else if(gubun == 2) {
         if (!inputPhone_number.startsWith('02')){
             alert("02로 시작하는 연락처만 삭제 가능합니다.");
             return false;

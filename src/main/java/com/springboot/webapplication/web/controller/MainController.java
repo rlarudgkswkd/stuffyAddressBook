@@ -1,6 +1,7 @@
 package com.springboot.webapplication.web.controller;
 
 import com.springboot.webapplication.connection.jpa.Posts;
+import com.springboot.webapplication.web.dto.PostsListDto;
 import com.springboot.webapplication.web.service.PostsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -29,7 +30,7 @@ public class MainController {
 
     @GetMapping("/posts/update/{id}")
     public String updateTemplate(@PathVariable Long id, Model model){
-        model.addAttribute("posts", postsService.findById(id));
+        model.addAttribute("post", postsService.findById(id));
         return "updateTemplate";
     }
 }

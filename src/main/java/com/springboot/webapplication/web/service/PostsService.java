@@ -4,6 +4,7 @@ import com.springboot.webapplication.connection.jpa.Posts;
 import com.springboot.webapplication.connection.jpa.PostsRepository;
 import com.springboot.webapplication.web.dto.PostsListDto;
 import com.springboot.webapplication.web.dto.PostsSaveDto;
+import com.springboot.webapplication.web.dto.PostsUpdateDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -25,8 +26,10 @@ public class PostsService {
     }
 
     @Transactional(readOnly = true)
-    public Optional<Posts> findById(Long id) {
-        return postsRepository.findById(id);
+    public PostsListDto findById(Long id) {
+        Posts post = postsRepository.findById(id).
+                orElseThrow(()-> new IllegalArgumentException("해당 연락처가 없음 id="+id));
+        return new PostsListDto(post);
     }
 
     @Transactional
@@ -35,7 +38,19 @@ public class PostsService {
     }
 
     @Transactional
-    public Long update(PostsSaveDto postsSaveDto){
-        return postsRepository.save(postsSaveDto.toUpdateEntity()).getId();
+    public Long update(Long id ,PostsUpdateDto postsUpdateDto){
+        Posts post = postsRepository.findById(id).orElseThrow(()
+        -> new IllegalArgumentException("해당 연락처가 없음 id="+id));
+
+        post.update(postsUpdateDto.getName(),postsUpdateDto.getAge(), postsUpdateDto.getPhone_number());
+        return id;
+    }
+
+    @Transactional
+    public void delete(Long id) {
+        Posts post = postsRepository.findById(id).orElseThrow(()
+        -> new IllegalArgumentException("해당 연락처가 없음 ID="+id));
+
+        postsRepository.delete(post);
     }
 }
