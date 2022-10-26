@@ -14,7 +14,7 @@
 
 - JAVA : JDK 1.8
 - Framework : Springboot 2.4.1
-- IDE: Intellij 202
+- IDE: IntelliJ IDEA 2021.3.2 (Community Edition)
 - DB : SQLite
 - ORM : JPA
 - LOGIN : Google OAuth(추후 구현)
