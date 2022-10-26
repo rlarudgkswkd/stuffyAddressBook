@@ -18,6 +18,7 @@
 - DB : SQLite
 - ORM : JPA
 - LOGIN : Google OAuth(추후 구현)
+- Gradle
 
 ## 테스트 코드(작업중)
 
