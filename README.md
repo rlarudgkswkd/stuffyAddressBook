@@ -1,5 +1,8 @@
 # 프로젝트 이름 : 고리타분한 주소록(StuffyAddressBook)
 
+![image](https://user-images.githubusercontent.com/48428850/199443914-534c3a91-4fc2-4d18-803b-b9c1bc412aa8.png)
+
+
 설명 : 전화번호를 저장, 변경, 삭제 할수있음. 
 <br>
 목적 : SpringBoot 기반 JPA 사용 공부
