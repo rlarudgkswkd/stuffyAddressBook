@@ -20,23 +20,8 @@
 - IDE: IntelliJ IDEA 2021.3.2 (Community Edition)
 - DB : SQLite
 - ORM : JPA
-- LOGIN : Google OAuth(추후 구현)
+- LOGIN : Google OAuth2
 - Gradle
-
-## 테스트 코드(작업중)
-
-```python
-import foobar
-
-# returns 'words'
-foobar.pluralize('word')
-
-# returns 'geese'
-foobar.pluralize('goose')
-
-# returns 'phenomenon'
-foobar.singularize('phenomena')
-```
 
 ## License
 [GPL](https://choosealicense.com/licenses/gpl-3.0/)
