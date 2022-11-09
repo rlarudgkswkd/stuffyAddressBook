@@ -8,6 +8,11 @@ import org.hibernate.dialect.function.StandardSQLFunction;
 import org.hibernate.dialect.function.VarArgsSQLFunction;
 import org.hibernate.type.StringType;
 
+/**
+ * SQLite에서 JPA 사용하기 위해 작성
+ * dialect 를 통해 sql 문법 차이를 개발자가 신경쓰지 않게 도와줌
+ * 참조 : https://skagh.tistory.com/59#:~:text=SQLite%EB%9E%80%3F&text=SQLite%EB%8A%94%20%EC%84%9C%EB%B2%84%EB%A1%9C%20%EB%9D%84%EC%9A%B0%EC%A7%80,%EB%A5%BC%20%EC%9E%98%20%EC%82%AC%EC%9A%A9%ED%95%98%EC%A7%80%20%EC%95%8A%EC%8A%B5%EB%8B%88%EB%8B%A4.
+ */
 public class SQLDialect extends Dialect {
     public SQLDialect() {
         registerColumnType(Types.BIT, "integer");
