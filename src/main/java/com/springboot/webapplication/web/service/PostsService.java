@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
@@ -18,6 +17,12 @@ import java.util.stream.Collectors;
 public class PostsService {
     private final PostsRepository postsRepository;
 
+    /**
+     * Created by : 김경한
+     * Date : 2022-10-09
+     * Remark : 전체 조회
+     * @return
+     */
     @Transactional(readOnly = true)
     public List<PostsListDto> findAllDesc() {
         return postsRepository.findAllDesc().stream()
@@ -25,6 +30,13 @@ public class PostsService {
                 .collect(Collectors.toList());
     }
 
+    /**
+     * Created by : 김경한
+     * Date : 2022-10-09
+     * id 기준으로 연락처 찾는 메서드
+     * @param id
+     * @return
+     */
     @Transactional(readOnly = true)
     public PostsListDto findById(Long id) {
         Posts post = postsRepository.findById(id).
@@ -32,11 +44,26 @@ public class PostsService {
         return new PostsListDto(post);
     }
 
+    /**
+     * Created by : 김경한
+     * Date : 2022-10-11
+     * Remark : 저장로직
+     * @param postsSaveDto
+     * @return
+     */
     @Transactional
     public Long save(PostsSaveDto postsSaveDto){
         return postsRepository.save(postsSaveDto.toEntity()).getId();
     }
 
+    /**
+     * Created by : 김경한
+     * Date : 2022-10-11
+     * Remark : update 용
+     * @param id
+     * @param postsUpdateDto
+     * @return
+     */
     @Transactional
     public Long update(Long id ,PostsUpdateDto postsUpdateDto){
         Posts post = postsRepository.findById(id).orElseThrow(()
@@ -46,6 +73,12 @@ public class PostsService {
         return id;
     }
 
+    /**
+     * Created by : 김경한
+     * Date : 2022-10-15
+     * Remark : id로 해당 row 삭제
+     * @param id
+     */
     @Transactional
     public void delete(Long id) {
         Posts post = postsRepository.findById(id).orElseThrow(()

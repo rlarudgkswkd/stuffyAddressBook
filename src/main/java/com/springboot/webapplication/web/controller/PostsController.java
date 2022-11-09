@@ -6,6 +6,9 @@ import com.springboot.webapplication.web.service.PostsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * 핵심 로직 call 하는 controller
+ */
 @RequiredArgsConstructor
 @RestController
 public class PostsController {

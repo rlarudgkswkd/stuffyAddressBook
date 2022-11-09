@@ -7,6 +7,9 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+/**
+ * JPA Entity 지정
+ */
 @Getter
 @NoArgsConstructor
 @Entity
