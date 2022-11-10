@@ -20,7 +20,7 @@
 - IDE: IntelliJ IDEA 2021.3.2 (Community Edition)
 - DB : SQLite
 - ORM : JPA
-- LOGIN : Google OAuth2 (권한이 USER인 경우에만 접속가능)
+- LOGIN : Google OAuth2 (권한이 USER인 경우에만 가능)
 - Gradle
 
 ## License
