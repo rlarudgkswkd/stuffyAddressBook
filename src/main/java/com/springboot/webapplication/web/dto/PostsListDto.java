@@ -2,7 +2,7 @@ package com.springboot.webapplication.web.dto;
 
 import com.springboot.webapplication.connection.jpa.Posts;
 import lombok.Getter;
-import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.time.LocalDateTime;
 
 @Getter

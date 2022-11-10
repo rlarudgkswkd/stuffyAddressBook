@@ -83,7 +83,6 @@ public class PostsService {
     public void delete(Long id) {
         Posts post = postsRepository.findById(id).orElseThrow(()
         -> new IllegalArgumentException("해당 연락처가 없음 ID="+id));
-
         postsRepository.delete(post);
     }
 }
