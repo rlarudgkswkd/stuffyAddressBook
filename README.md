@@ -20,8 +20,15 @@
 - IDE: IntelliJ IDEA 2021.3.2 (Community Edition)
 - DB : SQLite
 - ORM : JPA
-- LOGIN : Google OAuth2
+- LOGIN : Google OAuth2 (권한이 USER인 경우에만 가능)
 - Gradle
+
+## 개발 이력
+1. 2022.10.07 최초 개발 시작
+2. 2022.10.09 최초 Commit
+3. 2022.10.10 UPDATE 로직 구현
+4. 2022.10.15 DELETE 로직 구현
+5. 2022.11.10 Google OAuth2 적용
 
 ## License
 [GPL](https://choosealicense.com/licenses/gpl-3.0/)
