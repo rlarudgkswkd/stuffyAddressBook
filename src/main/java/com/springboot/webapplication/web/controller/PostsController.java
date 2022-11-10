@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 /**
  * 핵심 로직 call 하는 controller
+ * OAuth 적용으로 "/posts" 경로는 유저 권한이 'USER' 경우에만 접속 가능
  */
 @RequiredArgsConstructor
 @RestController

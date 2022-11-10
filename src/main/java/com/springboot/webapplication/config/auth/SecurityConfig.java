@@ -22,7 +22,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/","/css/**")
                 .permitAll()
-                .antMatchers("/api/v1/**")
+                .antMatchers("/posts/**")
                 .hasRole(Role.USER.name())
                 .anyRequest()
                 .authenticated()

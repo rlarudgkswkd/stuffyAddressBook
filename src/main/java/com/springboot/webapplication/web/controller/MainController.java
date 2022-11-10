@@ -50,7 +50,7 @@ public class MainController {
      * @param model
      * @return
      */
-    @GetMapping("/posts/update/{id}")
+    @GetMapping("/templates/update/{id}")
     public String updateTemplate(@PathVariable Long id, Model model){
         model.addAttribute("post", postsService.findById(id));
         return "updateTemplate";
